@@ -14,6 +14,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import callApi from './utils/callApi';
+import ScrapingModal from './components/ScrapingModal';
 
 
 // const drawerWidth = 240;
@@ -25,13 +26,38 @@ function App() {
   // const handleDrawerToggle = () => {
   //   setMobileOpen((prevState) => !prevState);
   // };
+
+  const [open, setOpen] = React.useState<any>(false);
+  const handleOpen: any = () => {
+    setLoading(true)
+    setOpen(true)
+  };
+  const handleClose: any = () => {
+    setLoading(false)
+    setOpen(false)
+  };
+  const [loading, setLoading] = React.useState(false)
+  const [message, setResponseMessage] = React.useState('Scrapping From Data Sources...')
+
+
   const scrapeButtonClicked = () => {
-    (async ()=>{
+    handleOpen();
+    (async () => {
       try {
-        await callApi('/scrape-data-from-sources', { type: 'get' })
+        let response = await callApi('/scrape-data-from-sources', {})
+        if (response.success) {
+          setResponseMessage(response.message)
+          setLoading(false)
+          window.location.reload()
+        }
+        else {
+          setResponseMessage('Failed To Scrape')
+        }
+        setLoading(false)
       }
       catch (err) {
-  
+        setResponseMessage('Failed To Scrape')
+        setLoading(false)
       }
     })()
 
@@ -79,6 +105,7 @@ function App() {
               <Route key={index} path={item.path} element={<item.element />} />
             ))}
           </Routes>
+          <ScrapingModal handleClose={handleClose} open={open} loading={loading} message={message}></ScrapingModal>
         </div>
       </main>
     </div>

@@ -21,8 +21,8 @@ const PropertyTable = (props: any) => {
         <Grid container sx={{ width: '100%', display: 'background.paper' }} columnSpacing={2} rowSpacing={2}>
             {properties?.map((property: any, index: number) => {
                 return (
-                    <Grid item xs={12} md={4} lg={3}>
-                        <Card sx={{ maxWidth: 345, height: "100%" }} key={`property-${index}-${property.id}`}>
+                    <Grid key={`property-${index}-${property.id}`} item xs={12} md={4} lg={3}>
+                        <Card sx={{ maxWidth: 345, height: "100%" }} >
                             <CardMedia
                                 component="img"
                                 alt="property image"

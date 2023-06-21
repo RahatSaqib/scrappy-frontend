@@ -3,7 +3,6 @@ import { imageUrl } from "../utils/callApi";
 import 'react-slideshow-image/dist/styles.css'
 export const ImageSlider = (props: any) => {
     const { images } = props
-    console.log({ images })
     const divStyle = {
         display: 'flex',
         alignItems: 'center',

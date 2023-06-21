@@ -7,20 +7,23 @@ import Button from '@mui/material/Button';
 import SearchIcon from '@mui/icons-material/Search';
 import PropertyTable from '../components/PropertyTable';
 import callApi from '../utils/callApi';
-
+import LinearProgress from '@mui/material/LinearProgress';
 export const Homepage = () => {
     const [searchString, setSearchString] = React.useState('')
     const [properties, setProperties] = React.useState([])
+    const [loading, setLoading] = React.useState(true)
 
     async function searchProperties(searchString: string) {
         try {
             let response = await callApi('/search-properties', { searchString: searchString.toLowerCase() })
             if (response.success) {
                 setProperties(response.data)
+
             }
+            setLoading(false)
         }
         catch (err) {
-
+            setLoading(false)
         }
     }
     React.useEffect(() => {
@@ -32,6 +35,7 @@ export const Homepage = () => {
     }
 
     async function searchButtonClicked() {
+        setLoading(true)
         await searchProperties(searchString)
     }
 
@@ -50,19 +54,19 @@ export const Homepage = () => {
                         // variant="filled"
                         size='small'
                         sx={{
-                            '.MuiOutlinedInput-root' :{
-                                background:'white',
+                            '.MuiOutlinedInput-root': {
+                                background: 'white',
                                 height: '40px',
-                                marginRight:'10px',
+                                marginRight: '10px',
                                 border: '1px solid #eee !important',
-                                borderRadius:'10px'
+                                borderRadius: '10px'
                             },
-                            '.MuiInputBase-root':{
+                            '.MuiInputBase-root': {
                                 // border: 'none !important',
-                                
+
                             }
 
-                
+
                         }}
                         onChange={(e) => handleChange(e.target.value)}
                     />
@@ -72,10 +76,16 @@ export const Homepage = () => {
                 </Box>
 
             </Box>
+            {loading ? (
+                <Box className='search-result'>
+                    <LinearProgress></LinearProgress>
+                </Box>
+            ) : (
+                <Box className='search-result'>
+                    <PropertyTable properties={properties}></PropertyTable>
+                </Box>
+            )}
 
-            <Box className='search-result'>
-                <PropertyTable properties={properties}></PropertyTable>
-            </Box>
 
         </React.Fragment>
     )

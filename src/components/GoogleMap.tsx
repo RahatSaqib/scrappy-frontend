@@ -18,7 +18,6 @@ export const GoogleMapComp = (props: any) => {
 
         (async () => {
             let res = await callGeocoderApi(address)
-            console.log({ res })
             map.current = new mapboxgl.Map({
                 container: mapContainer.current,
                 style: process.env.REACT_APP_MAP_STYLE,
