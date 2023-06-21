@@ -4,3 +4,9 @@ export const callGeocoderApi = async (value: string) => {
     let data = await response.json()
     return data?.features?.[0] ?? ''
 }
+
+export const getImageUrl = (file_url: string) => {
+    let url: URL = new URL(file_url)
+    let imageUrl = url.origin + url.pathname
+    return imageUrl
+  }

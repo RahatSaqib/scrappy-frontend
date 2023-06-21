@@ -9,7 +9,7 @@ const axiosConfig = {
   baseURL: config[mode]
 }
 
-export const imageUrl = 'http://scrappy-images-b.s3-website.ap-south-1.amazonaws.com/';
+
 
 const apiClient = axios.create(axiosConfig);
 

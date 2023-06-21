@@ -3,7 +3,6 @@ import Typography from '@mui/material/Typography';
 
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
-import { imageUrl } from '../utils/callApi';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -14,6 +13,7 @@ import BedIcon from '@mui/icons-material/Bed';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
 import PublicIcon from '@mui/icons-material/Public';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import { getImageUrl } from '../utils/common';
 
 const PropertyTable = (props: any) => {
     const { properties } = props
@@ -27,7 +27,7 @@ const PropertyTable = (props: any) => {
                                 component="img"
                                 alt="property image"
                                 height="200"
-                                image={imageUrl + property.images[0].file_key}
+                                image={getImageUrl(property.images[0].file_url)}
                             />
                             <CardContent sx={{ minHeight: 150 }}>
                                 <Typography gutterBottom variant="h5" component="div">
