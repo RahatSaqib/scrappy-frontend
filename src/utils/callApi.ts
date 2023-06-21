@@ -1,9 +1,9 @@
 import axios from "axios";
-export const mode = 'dev' // 'dev' or 'production
+export const mode = 'production' // 'dev' or 'production
 
 const config = {
   dev: "http://localhost:3001/api/v1",
-  production: "http://44.203.111.176:3001/api/v1"
+  production: "http://3.219.85.76:8443/api/v1"
 }
 const axiosConfig = {
   baseURL: config[mode]
