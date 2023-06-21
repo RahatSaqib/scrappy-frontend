@@ -14,7 +14,7 @@ export const imageUrl = 'http://scrappy-images-b.s3-website.ap-south-1.amazonaws
 const apiClient = axios.create(axiosConfig);
 
 const callApi = async (endPonint: string, data: any, config?: any) => {
-  if (data.type == 'get') {
+  if (data.type === 'get') {
     let response = await apiClient.get(endPonint)
     return response.data
   }

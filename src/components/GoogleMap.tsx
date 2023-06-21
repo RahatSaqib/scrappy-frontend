@@ -1,6 +1,6 @@
 
 
-import React, { useMemo, useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { callGeocoderApi } from "../utils/common";
 import mapboxgl, { Map } from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -11,9 +11,7 @@ export const GoogleMapComp = (props: any) => {
     let { address } = props
     const mapContainer = useRef<any>(null);
     const map = useRef<Map | any>(null);
-    const [lng, setLng] = useState()
-    const [lat, setLat] = useState()
-    const [zoom, setZoom] = useState(10)
+    const zoom = 10
 
     useEffect(() => {
 
@@ -26,11 +24,7 @@ export const GoogleMapComp = (props: any) => {
                 center: res.center,
                 zoom: zoom
             });
-            map.current.on('move', () => {
-                setLng(map.current.getCenter().lng.toFixed(4));
-                setLat(map.current.getCenter().lat.toFixed(4));
-                setZoom(map.current.getZoom().toFixed(2));
-            });
+
             map.current.addControl(new mapboxgl.NavigationControl(), 'top-left');
             new mapboxgl.Marker()
                 .setLngLat(res.center)

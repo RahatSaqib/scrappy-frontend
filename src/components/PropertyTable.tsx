@@ -1,5 +1,4 @@
 import * as React from 'react';
-import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 
 import Button from '@mui/material/Button';
