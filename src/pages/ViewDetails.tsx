@@ -38,7 +38,7 @@ export const ViewDetails = () => {
     }, [id])
 
     return (
-        <div>
+        <div className="details-section">
             <Grid container rowSpacing={3}>
                 <Grid item xs={12}>
                     <Link to="/" style={{
@@ -79,14 +79,14 @@ export const ViewDetails = () => {
                                 <Typography variant="caption" color="text.secondary" style={{
                                     display: 'flex',
                                     alignItems: 'center',
-                                    marginRight:'5px'
+                                    marginRight: '10px'
                                 }}>
                                     <BedIcon sx={{ marginRight: "5px" }} /> {property?.capacity}
                                 </Typography>
                                 <Typography variant="caption" color="text.secondary" style={{
                                     display: 'flex',
                                     alignItems: 'center',
-                                    marginRight:'5px'
+                                    marginRight: '10px'
                                 }}>
                                     <LocationCityIcon sx={{ marginRight: "5px" }} /> {property?.city}
 
@@ -94,12 +94,20 @@ export const ViewDetails = () => {
                                 <Typography variant="caption" color="text.secondary" style={{
                                     display: 'flex',
                                     alignItems: 'center',
-                                    marginRight:'5px'
+                                    marginRight: '10px'
                                 }}>
                                     <PublicIcon sx={{ marginRight: "5px" }} /> {property?.country}
 
                                 </Typography>
                             </Box>
+                            <Typography variant="body2" color="text.secondary" sx={{ display: 'flex', alignItems: "center", marginTop: "10px" }}>
+
+                                Zip Code: {property?.zipcode}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary" sx={{ display: 'flex', alignItems: "center", marginTop: "10px" }}>
+
+                                Type: {property?.type}
+                            </Typography>
                         </CardContent>
                         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
 

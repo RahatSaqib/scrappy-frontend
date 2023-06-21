@@ -1,5 +1,6 @@
 
-
+// @ts-ignore
+// eslint-disable-next-line import/no-webpack-loader-syntax
 import { useEffect, useRef } from "react";
 import { callGeocoderApi } from "../utils/common";
 import mapboxgl, { Map } from "mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax

@@ -71,3 +71,7 @@ main .container {
 .search-result{
   padding: 40px 20px;
 }
+.details-section{
+  background-color: white;
+  padding: 20px;
+}
