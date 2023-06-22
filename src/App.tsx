@@ -87,11 +87,11 @@ function App() {
             <Typography
               variant="h6"
               component="div"
-              sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block', color: '#6c48f7' } }}
+              sx={{ flexGrow: 1, display: { sm: 'block', color: '#6c48f7' } }}
             >
               Scrappy
             </Typography>
-            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+            <Box sx={{ display: { sm: 'block' } }}>
               <Button sx={{ color: '#fff', background: "#6c48f7" }} variant='contained' onClick={scrapeButtonClicked}>
                 Scrape Data From Sources
               </Button>
