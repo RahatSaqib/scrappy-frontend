@@ -7,7 +7,7 @@ const config: { local: string; production: string } = {
 export const mode = process.env.REACT_APP_MODE || config.local // 'local' or 'production
 
 const axiosConfig = {
-  baseURL: mode == config.local ? config.local : config.production
+  baseURL: mode === config.local ? config.local : config.production
 }
 
 
