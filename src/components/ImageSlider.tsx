@@ -1,6 +1,7 @@
 import { Zoom } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
 import { getImageUrl } from '../utils/common';
+
 export const ImageSlider = (props: any) => {
     const { images } = props
     const divStyle = {

@@ -10,6 +10,7 @@ on:
 env:
   REACT_APP_MAPBOX_KEY: ${{ secrets.REACT_APP_MAPBOX_KEY }}
   REACT_APP_MAP_STYLE: ${{ secrets.REACT_APP_MAP_STYLE }}
+  REACT_APP_MODE: ${{ secrets.REACT_APP_MODE }}
 jobs:
   build:
 

@@ -11,16 +11,16 @@ import { Link } from 'react-router-dom';
 
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import { GoogleMapComp } from "../components/GoogleMap";
-import BedIcon from '@mui/icons-material/Bed';
-import LocationCityIcon from '@mui/icons-material/LocationCity';
-import PublicIcon from '@mui/icons-material/Public';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 import LinearProgress from '@mui/material/LinearProgress';
+import AddressSection from "../components/AddressSection";
 
 export const ViewDetails = () => {
     const [property, setProperty] = React.useState<any>({})
     const { id } = useParams();
     const [loading, setLoading] = React.useState(true)
+
+
+
     React.useEffect(() => {
         (async () => {
             try {
@@ -74,35 +74,7 @@ export const ViewDetails = () => {
                                 <Typography gutterBottom variant="h5" component="div">
                                     {property?.name}
                                 </Typography>
-                                <Typography variant="body2" color="text.secondary" sx={{ display: 'flex', alignItems: "center", marginTop: "10px" }}>
-                                    <LocationOnIcon sx={{ marginRight: "5px" }} />
-                                    {property?.address}
-                                </Typography>
-                                <Box sx={{ display: 'flex', marginTop: "10px" }}>
-                                    <Typography variant="caption" color="text.secondary" style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        marginRight: '10px'
-                                    }}>
-                                        <BedIcon sx={{ marginRight: "5px" }} /> {property?.capacity}
-                                    </Typography>
-                                    <Typography variant="caption" color="text.secondary" style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        marginRight: '10px'
-                                    }}>
-                                        <LocationCityIcon sx={{ marginRight: "5px" }} /> {property?.city}
-
-                                    </Typography>
-                                    <Typography variant="caption" color="text.secondary" style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        marginRight: '10px'
-                                    }}>
-                                        <PublicIcon sx={{ marginRight: "5px" }} /> {property?.country}
-
-                                    </Typography>
-                                </Box>
+                                <AddressSection property={property}></AddressSection>
                                 <Typography variant="body2" color="text.secondary" sx={{ display: 'flex', alignItems: "center", marginTop: "10px" }}>
 
                                     Zip Code: {property?.zipcode}

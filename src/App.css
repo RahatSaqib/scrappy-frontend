@@ -2,10 +2,10 @@
   font-family: 'Poppins', sans-serif;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   main .container {
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
   }
 }
 

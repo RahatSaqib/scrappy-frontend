@@ -1,14 +1,14 @@
 import axios from "axios";
-export const mode = 'production' // 'dev' or 'production
 
-const config = {
-  dev: "http://localhost:3001/api/v1",
-  production: "http://3.219.85.76:3001/api/v1"
+const config: { local: string; production: string } = {
+  'local': "http://localhost:3001/api/v1",
+  'production': "http://3.219.85.76:3001/api/v1"
 }
+export const mode = process.env.REACT_APP_MODE || config.local // 'local' or 'production
+
 const axiosConfig = {
-  baseURL: config[mode]
+  baseURL: mode == config.local ? config.local : config.production
 }
-
 
 
 const apiClient = axios.create(axiosConfig);
